@@ -1,0 +1,13 @@
+description="Git commit staged changes"
+prompt = """
+You need to do git commit.
+Check if there are files in the staging area. If yes then only commit the staged changes.
+If there are no files in the staging area but there are files in unstaged area then git add the files and commit.
+
+Note:  
+- If files are present in the staging area then just commit the staged changes and leave the unstaged changes as it is.
+- Directly commit do not ask for me to review on the git message.
+
+Important and must be followed at any cost:
+Crate a very good commit message. DO NOT USE GENERIC COMMIT MESSAGES.
+"""

@@ -1,0 +1,140 @@
+# [Project Name] - Session Summary
+
+## Session Overview
+[to be provided by the agent - brief description of main activities and timestamp]
+
+## Chronological Progress Log
+*Oldest sessions first (ascending order)*
+
+### Session 1 - [First Date + Time IST]
+**Focus Area**: [to be provided by the agent - main theme of first session]
+
+#### Key Accomplishments
+[to be provided by the agent - first session achievements]
+
+#### Technical Implementation
+[to be provided by the agent - first session technical work]
+
+---
+
+### Session 2 - [Second Date + Time IST]
+**Focus Area**: [to be provided by the agent - main theme of second session]
+
+#### Key Accomplishments
+[to be provided by the agent - second session achievements]
+
+#### Technical Implementation
+[to be provided by the agent - second session technical work]
+
+---
+
+### Session [Latest] - [Most Recent Date + Time IST]
+**Focus Area**: [to be provided by the agent - main theme of current session]
+
+#### Key Accomplishments
+- **[Category 1]**: [to be provided by the agent - specific achievements]
+- **[Category 2]**: [to be provided by the agent - specific achievements]
+- **[Category 3]**: [to be provided by the agent - specific achievements]
+
+#### Technical Implementation
+- **[Component/Feature]**: [to be provided by the agent - implementation details]
+- **[Component/Feature]**: [to be provided by the agent - implementation details]
+
+#### Critical Bug Fixes & Solutions
+1. **[Issue Description]**: [to be provided by the agent - problem and resolution]
+2. **[Issue Description]**: [to be provided by the agent - problem and resolution]
+
+#### Current State After This Session
+- **Working Features**: [to be provided by the agent - what's operational]
+- **Pending Items**: [to be provided by the agent - what's incomplete]
+- **Blocked Issues**: [to be provided by the agent - current obstacles]
+
+---
+
+## Current Project State
+
+### ✅ Completed Components
+- **[Component Name]**: [to be provided by the agent - completion status and functionality]
+- **[Component Name]**: [to be provided by the agent - completion status and functionality]
+
+### 🔄 In Progress
+- **[Feature/Task]**: [to be provided by the agent - current status and next steps]
+- **[Feature/Task]**: [to be provided by the agent - current status and next steps]
+
+### ❌ Known Issues
+- **[Issue]**: [to be provided by the agent - problem description and impact]
+- **[Issue]**: [to be provided by the agent - problem description and impact]
+
+## Technical Architecture
+
+### Project Structure
+```
+[to be provided by the agent - directory structure]
+```
+
+### Key Configuration
+```
+[to be provided by the agent - important config snippets]
+```
+
+### Dependencies & Requirements
+- **[Technology]**: [to be provided by the agent - version and purpose]
+- **[Technology]**: [to be provided by the agent - version and purpose]
+
+## Important Context
+
+### Design Decisions
+- **[Decision]**: [to be provided by the agent - rationale and implications]
+- **[Decision]**: [to be provided by the agent - rationale and implications]
+
+### User Requirements
+- **[Requirement]**: [to be provided by the agent - user need and implementation approach]
+- **[Requirement]**: [to be provided by the agent - user need and implementation approach]
+
+### Environment Setup
+- **Development**: [to be provided by the agent - local setup instructions]
+- **Production**: [to be provided by the agent - deployment configuration]
+
+## Commands Reference
+
+### Development Commands
+```bash
+[to be provided by the agent - key development commands]
+```
+
+### Deployment Commands
+```bash
+[to be provided by the agent - deployment commands]
+```
+
+### Testing Commands
+```bash
+[to be provided by the agent - testing commands]
+```
+
+## Next Steps & Considerations
+
+### Potential Immediate Actions
+- [to be provided by the agent - suggested next steps if continuing current work]
+- [to be provided by the agent - alternative directions to explore]
+
+### Short-term Possibilities (Next 1-2 Sessions)
+- [to be provided by the agent - potential areas for development]
+- [to be provided by the agent - optional enhancements to consider]
+
+### Future Opportunities
+- [to be provided by the agent - longer-term possibilities]
+- [to be provided by the agent - potential expansions or improvements]
+
+## File Status
+- **Last Updated**: [to be provided by the agent - timestamp]
+- **Session Count**: [to be provided by the agent - number of sessions]
+- **Project Phase**: [to be provided by the agent - current development phase]
+
+---
+
+## Evolution Notes
+[to be provided by the agent - key insights about how the project has evolved and lessons learned]
+
+## Session Handoff Context
+[to be provided by the agent - critical information needed for the next session to continue seamlessly]
