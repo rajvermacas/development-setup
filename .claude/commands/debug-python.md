@@ -317,7 +317,7 @@ tmux send-keys -t session Enter
 ### Exception/Error Debugging
 ```bash
 # 1. Identify error location from stack trace
-tmux capture-pane -t session -S -10 -p
+tmux capture-pane -t session -S -50 -p
 
 # 2. Set breakpoint before error line  
 tmux send-keys -t session "b file.py:line_before_error"
@@ -407,7 +407,7 @@ sys.excepthook = debug_on_exception
 ### Capture & Analyze
 ```bash
 # Full session capture
-tmux capture-pane -t session -S -10 -p > debug_session.log
+tmux capture-pane -t session -S -300 -p > debug_session.log
 
 # Extract patterns
 grep "Error\|Exception\|Traceback" debug_session.log > errors.log
@@ -477,7 +477,7 @@ tmux send-keys -t debug_main "python -m pdb script.py"
 tmux send-keys -t debug_main Enter
 
 # Monitor and control
-tmux capture-pane -t debug_main -S -10 -p  # Check output
+tmux capture-pane -t debug_main -S -50 -p  # Check output
 tmux send-keys -t debug_main "command"     # Send debug command
 tmux send-keys -t debug_main Enter         # Execute command
 tmux kill-session -t debug_main            # Clean up
