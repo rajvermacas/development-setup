@@ -47,26 +47,41 @@ debug_gamma_api
 
 ## 🚨 CRITICAL DEBUG PRINCIPLES
 
-### 1. INSERT STRATEGIC BREAKPOINTS DIRECTLY IN CODE
+### 1. MANDATORY MINIMUM 5 BREAKPOINTS RULE
+**EVERY debug session MUST include AT LEAST 5 strategically placed breakpoints before starting:**
+
+1. **Entry Point Breakpoint**: At function/method entry where issue occurs
+2. **Pre-Error Breakpoint**: 1-3 lines BEFORE the error location
+3. **Decision Point Breakpoint**: At conditional logic affecting error path
+4. **Data State Breakpoint**: Where key variables are modified/assigned
+5. **Exit/Return Breakpoint**: At function exit or error handling block
+
+**NO EXCEPTIONS** - Insufficient breakpoints lead to ineffective debugging sessions.
+
+### 2. INSERT STRATEGIC BREAKPOINTS DIRECTLY IN CODE
 Place breakpoints BEFORE errors to inspect failure-causing state:
 
 ```python
-# Strategic placement examples
+# Strategic placement examples with MINIMUM 5 breakpoints
 def problematic_function(data):
-    breakpoint()  # Entry point inspection
+    breakpoint()  # 1. Entry point inspection
     
-    for item in items:
+    processed_data = preprocess(data)
+    breakpoint()  # 2. Data state after preprocessing
+    
+    for item in processed_data:
         if suspicious_condition(item):
-            breakpoint()  # Before potential failure
-        process(item)
-
-try:
-    risky_operation()
-except Exception as e:
-    import pdb; pdb.post_mortem()  # Exact error point
+            breakpoint()  # 3. Decision point before potential failure
+        
+        try:
+            result = risky_operation(item)
+            breakpoint()  # 4. Pre-error state inspection
+        except Exception as e:
+            breakpoint()  # 5. Error handling/exit point
+            import pdb; pdb.post_mortem()
 ```
 
-### 2. SYSTEMATIC PDB SESSION SETUP
+### 3. SYSTEMATIC PDB SESSION SETUP
 Always follow structured workflow with proper environment:
 
 ```bash
@@ -91,24 +106,34 @@ tmux send-keys -t debug_[identifier] Enter
 🔬 STRATEGY:
 PHASE 1: Environment Setup
 ├── Create tmux session with activated virtual environment
-├── Insert strategic breakpoints at error sources  
+├── Insert MINIMUM 5 strategic breakpoints at error sources  
+├── Validate breakpoint coverage: entry→data→decision→pre-error→exit
 └── Prepare test data/conditions
 
 PHASE 2: Systematic PDB Session
 ├── Set entry point and decision point breakpoints
 ├── Map execution path to error location
-└── Establish systematic debug workflow
+├── Establish systematic debug workflow with 5+ checkpoints
+└── Confirm all breakpoints are properly positioned
 
 PHASE 3: Investigation & Analysis
-├── Run program hitting breakpoints sequentially
+├── Run program hitting breakpoints sequentially (all 5+)
 ├── Inspect variables/state at each critical point
-├── Form and test hypotheses with evidence
+├── Form and test hypotheses with evidence from each breakpoint
 └── Focus: [specific functions/variables to examine]
 
 PHASE 4: Fix Implementation & Validation
 ├── Apply fix and test in debugger
 ├── Validate with clean run in proper environment
 └── Run test suite to ensure no regression
+
+⚠️  BREAKPOINT REQUIREMENT: MINIMUM 5 breakpoints mandatory
+🔧 BREAKPOINT LOCATIONS: 
+    1. [Entry point location]
+    2. [Pre-error location] 
+    3. [Decision point location]
+    4. [Data state location]
+    5. [Exit/error handling location]
 
 ⏱️ ESTIMATED TIME: [duration]
 🔧 FILES: [Python files to debug]
@@ -314,16 +339,29 @@ tmux send-keys -t session Enter
 
 ## 🎯 Systematic Debug Workflows
 
-### Exception/Error Debugging
+### Exception/Error Debugging (5+ Breakpoint Strategy)
 ```bash
 # 1. Identify error location from stack trace
 tmux capture-pane -t session -S -50 -p
 
-# 2. Set breakpoint before error line  
-tmux send-keys -t session "b file.py:line_before_error"
+# 2. Set MINIMUM 5 breakpoints systematically:
+#    - Entry point
+tmux send-keys -t session "b function_entry"
+tmux send-keys -t session Enter
+#    - Data preparation point
+tmux send-keys -t session "b data_prep_line"
+tmux send-keys -t session Enter
+#    - Decision/condition point
+tmux send-keys -t session "b condition_line"
+tmux send-keys -t session Enter
+#    - Pre-error line
+tmux send-keys -t session "b line_before_error"
+tmux send-keys -t session Enter
+#    - Error handling point
+tmux send-keys -t session "b except_block_line"
 tmux send-keys -t session Enter
 
-# 3. Restart and inspect state at failure point
+# 3. Restart and inspect state at each breakpoint
 tmux send-keys -t session "restart"
 tmux send-keys -t session Enter
 tmux send-keys -t session "pp locals()"
@@ -336,12 +374,18 @@ tmux send-keys -t session "c"
 tmux send-keys -t session Enter
 ```
 
-### Logic/Flow Debugging
+### Logic/Flow Debugging (5+ Breakpoint Strategy)
 ```bash
-# 1. Set breakpoints at decision points
-tmux send-keys -t session "b function_entry"
+# 1. Set MINIMUM 5 breakpoints at critical flow points
+tmux send-keys -t session "b function_entry"      # 1. Entry
 tmux send-keys -t session Enter
-tmux send-keys -t session "b decision_point_line"
+tmux send-keys -t session "b first_condition"     # 2. First decision
+tmux send-keys -t session Enter
+tmux send-keys -t session "b loop_start"          # 3. Loop entry
+tmux send-keys -t session Enter
+tmux send-keys -t session "b critical_calc"       # 4. Key calculation
+tmux send-keys -t session Enter
+tmux send-keys -t session "b function_exit"       # 5. Exit point
 tmux send-keys -t session Enter
 
 # 2. Run and examine state at each point
@@ -355,19 +399,31 @@ tmux send-keys -t session "w"
 tmux send-keys -t session Enter
 ```
 
-### Data/State Debugging
+### Data/State Debugging (5+ Breakpoint Strategy)
 ```bash
-# 1. Inspect data structures and types
+# 1. Set breakpoints at data transformation points
+tmux send-keys -t session "b data_input"          # 1. Data entry
+tmux send-keys -t session Enter
+tmux send-keys -t session "b validation_point"    # 2. Validation
+tmux send-keys -t session Enter
+tmux send-keys -t session "b transformation_1"    # 3. First transform
+tmux send-keys -t session Enter
+tmux send-keys -t session "b transformation_2"    # 4. Second transform
+tmux send-keys -t session Enter
+tmux send-keys -t session "b data_output"         # 5. Data output
+tmux send-keys -t session Enter
+
+# 2. Inspect data structures and types at each point
 tmux send-keys -t session "pp data_structure"
 tmux send-keys -t session Enter
 tmux send-keys -t session "whatis object"
 tmux send-keys -t session Enter
 
-# 2. Track mutations with auto-display
+# 3. Track mutations with auto-display
 tmux send-keys -t session "display variable"
 tmux send-keys -t session Enter
 
-# 3. Validate data integrity
+# 4. Validate data integrity
 tmux send-keys -t session "!print(f'Len: {len(data)}, Type: {type(data)}, Valid: {validate(data)}')"
 tmux send-keys -t session Enter
 ```
@@ -418,8 +474,9 @@ grep "^>" debug_session.log > execution_path.log
 ```markdown
 ## Debug Session Report
 - **Problem**: [description]
+- **Breakpoints Used**: [list of 5+ breakpoint locations]
 - **Root Cause**: [identified cause]  
-- **Key Findings**: [variable states, unexpected values]
+- **Key Findings**: [variable states, unexpected values at each breakpoint]
 - **Fix Applied**: [code changes]
 - **Validation**: [verification method]
 ```
@@ -449,31 +506,36 @@ tmux send-keys -t session Enter
 
 ### Pre-Debug
 - [ ] Activate virtual environment first
-- [ ] Insert strategic breakpoints in code
+- [ ] Insert MINIMUM 5 strategic breakpoints in code
+- [ ] Verify breakpoint coverage: entry→data→decision→pre-error→exit
 - [ ] Create tmux session with proper environment
 - [ ] Prepare minimal reproduction case
 
 ### During Debug  
 - [ ] Verify correct Python interpreter (venv active)
-- [ ] Set breakpoints at error sources
-- [ ] Inspect actual values, never assume
-- [ ] Test hypotheses with evidence
+- [ ] Confirm all 5+ breakpoints are hit during execution
+- [ ] Inspect actual values at each breakpoint, never assume
+- [ ] Test hypotheses with evidence from multiple breakpoints
 - [ ] Document findings systematically
 
 ### Post-Debug
-- [ ] Implement permanent fix
+- [ ] Implement permanent fix based on multi-breakpoint analysis
 - [ ] Remove debug breakpoints  
 - [ ] Validate with full test suite
-- [ ] Document solution and root cause
+- [ ] Document solution and root cause with breakpoint evidence
 
 ## 🚀 Quick Start Template
 
 ```bash
-# Essential debug session setup
+# Essential debug session setup with 5+ breakpoints verification
 tmux new-session -d -s debug_main
 tmux send-keys -t debug_main "source venv/bin/activate 2>/dev/null || source .venv/bin/activate 2>/dev/null || true"
 tmux send-keys -t debug_main Enter
 tmux send-keys -t debug_main "python -m pdb script.py"
+tmux send-keys -t debug_main Enter
+
+# Verify minimum 5 breakpoints before proceeding
+tmux send-keys -t debug_main "info b"  # Should show 5+ breakpoints
 tmux send-keys -t debug_main Enter
 
 # Monitor and control
@@ -483,4 +545,6 @@ tmux send-keys -t debug_main Enter         # Execute command
 tmux kill-session -t debug_main            # Clean up
 ```
 
-**MASTER WORKFLOW: Plan → Setup Environment → Insert Breakpoints → Debug Systematically → Fix → Validate → Document**
+**MASTER WORKFLOW: Plan → Setup Environment → Insert 5+ Breakpoints → Verify Coverage → Debug Systematically → Fix → Validate → Document**
+
+**⚠️ CRITICAL RULE: NO DEBUG SESSION WITHOUT MINIMUM 5 STRATEGICALLY PLACED BREAKPOINTS**
