@@ -17,7 +17,8 @@ Can you please re-articulate my requirements in your own words, ensuring you:
      * `codebase-explorer` → Understand the codebase.
      * `impact-analyzer` → Analyze the impact of requested changes.
      * `code-change-planner` → Create a change plan: files, line numbers, algorithm in plain English.
-     * `Main Agent` → Implement the changes.
+     * `project-setup-architect` → Creates files, directories, configurations, installs dependencies.
+     * `Main Agent` → Implement the code changes.
      * `feature-completion-reviewer` → Review for completeness, stale references, code quality.
    * **However, this is not mandatory**. Based on the requirement, you should **decide which agents to use and in what sequence**.
 5. Identify scenarios where additional **ad-hoc sub-agents** (e.g., `library-api-discover`, `tech-intelligence-researcher`, `error-resolver`) may be invoked. Explain why and when they would be used.
