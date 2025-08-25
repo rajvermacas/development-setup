@@ -19,6 +19,6 @@ Can you please re-articulate my requirements in your own words, ensuring you:
      * `Main Agent` → Implement the code changes.
      * `feature-completion-reviewer` → Review for completeness, stale references, code quality.
    * **However, this is not mandatory**. Based on the requirement, you should **decide which agents to use and in what sequence**.
-5. Identify scenarios where additional **ad-hoc sub-agents** (e.g., `library-api-discover`, `tech-intelligence-researcher`) may be invoked. Explain why and when they would be used.
+5. Identify scenarios where additional **ad-hoc sub-agents** (e.g., `library-api-discovery`, `tech-intelligence-researcher`) may be invoked. Explain why and when they would be used.
 6. Conclude with a **comprehensive TODO list** in the correct logical order, ready for execution.
 7. Wait for my confirmation before you start execution.
