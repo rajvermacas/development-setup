@@ -14,9 +14,7 @@ Can you please re-articulate my requirements in your own words, ensuring you:
 
    * Consider the ideal agent workflow as a **reference**:
 
-     * `codebase-explorer` → Understand the codebase.
-     * `impact-analyzer` → Analyze the impact of requested changes.
-     * `code-change-planner` → Create a change plan: files, line numbers, algorithm in plain English.
+     * `requirement-analyzer` → Understand the codebase, analyze impact of the new changes/requirement, write algorithms in plain english on how the changes to be made in the existing codebase.
      * `project-setup-architect` → Creates files, directories, configurations, installs dependencies.
      * `Main Agent` → Implement the code changes.
      * `feature-completion-reviewer` → Review for completeness, stale references, code quality.
