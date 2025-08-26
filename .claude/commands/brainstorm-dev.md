@@ -9,7 +9,7 @@ As a Senior Architect, discuss with me. DO NOT START CODING. I just need a brain
 
 **IMPORTANT AND MUST BE FOLLOWED AT ANY COST**  
 Think hard about the requirement.  
-Do not wriite code. Write algorithms.
+Do not write code. Write algorithms.
 We should leverage existing battle-tested frameworks rather than reinventing the wheel.
 
 The requirement is:
