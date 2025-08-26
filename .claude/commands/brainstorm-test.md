@@ -9,7 +9,7 @@ As a Senior Test Engineer, discuss with me. DO NOT START TESTING. I just need a 
 
 **IMPORTANT AND MUST BE FOLLOWED AT ANY COST**  
 Think hard about the requirement.  
-Do not wriite code. Write Strategy and Algorithms.
+Do not write code. Write Strategy and Algorithms.
 
 The requirement is:
 $ARGUMENTS
