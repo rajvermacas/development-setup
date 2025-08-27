@@ -1,1 +1,1 @@
-Create a markdown artifact in the `.dev-resources/architecture/` directory, covering all details of the finalized approach.
+Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach.
