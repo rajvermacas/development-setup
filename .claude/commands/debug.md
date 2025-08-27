@@ -1,6 +1,6 @@
 - Pair with me to have an interactive debugging session step by step. 
 - Rearticulate my requirements in your own words.
-- Ask me relevant questions. 
+- Think hard and ask me pin pointed relevant questions with a default answer attached to it. 
 - Find Root Cause. 
 - Propose solution.
 - Do not jump onto coding before my explicit approval.
