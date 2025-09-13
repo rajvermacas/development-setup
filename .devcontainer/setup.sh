@@ -1,28 +1,23 @@
 #!/bin/bash
 
-# Exit on error
+# Exit on error (but allow grep to fail)
 set -e
+set +o pipefail
 
 # Target home directory for installation (use vscode user's home)
-TARGET_HOME="/home/vscode"
+TARGET_HOME="/root"
 
 # Create log file
-LOG_FILE="/home/vscode/setup-log.txt"
-if [ ! -d "/home/vscode" ]; then
+LOG_FILE="/root/setup-log.txt"
+if [ ! -d "/root" ]; then
     LOG_FILE="/tmp/setup-log.txt"
 fi
 
 
 # Simple logging function
 log() {
-    echo "[$(date '+%H:%M:%S')] $*"
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" >> "$LOG_FILE" 2>/dev/null || true
-}
-
-# Verbose logging function for detailed steps
-log_verbose() {
     echo "  → $*"
-    echo "  → $*" >> "$LOG_FILE" 2>/dev/null || true
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]   → $*" >> "$LOG_FILE" 2>/dev/null || true
 }
 
 # Log file operations with source and target
@@ -38,11 +33,11 @@ log_file_op() {
 log "========================================"
 log "Starting development setup..."
 log "========================================"
-log_verbose "Script execution started at: $(date '+%Y-%m-%d %H:%M:%S')"
-log_verbose "User: $(whoami)"
-log_verbose "Home directory: $HOME"
-log_verbose "Current directory: $(pwd)"
-log_verbose "Log file location: $LOG_FILE"
+log "Script execution started at: $(date '+%Y-%m-%d %H:%M:%S')"
+log "User: $(whoami)"
+log "Home directory: $HOME"
+log "Current directory: $(pwd)"
+log "Log file location: $LOG_FILE"
 
 # Clone the repository
 REPO_URL="https://github.com/rajvermacas/development-setup.git"
@@ -50,73 +45,73 @@ TEMP_DIR="/tmp/development-setup"
 
 log ""
 log "=== STEP 1: Repository Cloning ==="
-log_verbose "Repository URL: $REPO_URL"
-log_verbose "Temporary clone directory: $TEMP_DIR"
+log "Repository URL: $REPO_URL"
+log "Temporary clone directory: $TEMP_DIR"
 
 # Remove existing temp directory if it exists
 if [ -d "$TEMP_DIR" ]; then
-    log_verbose "Found existing directory at $TEMP_DIR"
-    log_verbose "Removing existing directory..."
+    log "Found existing directory at $TEMP_DIR"
+    log "Removing existing directory..."
     rm -rf "$TEMP_DIR" 2>/dev/null || true
-    log_verbose "Directory removed successfully"
+    log "Directory removed successfully"
 else
-    log_verbose "No existing directory found at $TEMP_DIR"
+    log "No existing directory found at $TEMP_DIR"
 fi
 
 # Clone the repository
-log_verbose "Starting git clone operation..."
-log_verbose "Command: git clone $REPO_URL $TEMP_DIR"
+log "Starting git clone operation..."
+log "Command: git clone $REPO_URL $TEMP_DIR"
 if git clone "$REPO_URL" "$TEMP_DIR" 2>/dev/null; then
     log "✓ Repository cloned successfully"
-    log_verbose "Clone completed at: $(date '+%H:%M:%S')"
-    log_verbose "Repository size: $(du -sh "$TEMP_DIR" 2>/dev/null | cut -f1)"
+    log "Clone completed at: $(date '+%H:%M:%S')"
+    log "Repository size: $(du -sh "$TEMP_DIR" 2>/dev/null | cut -f1)"
     REPO_AVAILABLE=true
 else
     log "✗ Failed to clone repository"
-    log_verbose "Clone failed at: $(date '+%H:%M:%S')"
-    log_verbose "Continuing setup without repository files..."
+    log "Clone failed at: $(date '+%H:%M:%S')"
+    log "Continuing setup without repository files..."
     REPO_AVAILABLE=false
 fi
 
 # Create target directories
 log ""
 log "=== STEP 2: Creating Target Directories ==="
-log_verbose "Preparing to create directory structure..."
+log "Preparing to create directory structure..."
 
 # Claude directories
-log_verbose "Creating Claude directories..."
+log "Creating Claude directories..."
 TARGET_DIR="$TARGET_HOME/.claude"
-log_verbose "Main Claude directory: $TARGET_DIR"
+log "Main Claude directory: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
-log_verbose "Created: $TARGET_DIR"
+log "Created: $TARGET_DIR"
 
 for subdir in agents commands output-styles; do
     FULL_PATH="$TARGET_DIR/$subdir"
-    log_verbose "Creating subdirectory: $FULL_PATH"
+    log "Creating subdirectory: $FULL_PATH"
     mkdir -p "$FULL_PATH"
-    log_verbose "✓ Created: $FULL_PATH"
+    log "✓ Created: $FULL_PATH"
 done
 
 # Gemini directories
-log_verbose "Creating Gemini directories..."
+log "Creating Gemini directories..."
 TARGET_DIR="$TARGET_HOME/.gemini/commands"
-log_verbose "Target: $TARGET_DIR"
+log "Target: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
-log_verbose "✓ Created: $TARGET_DIR"
+log "✓ Created: $TARGET_DIR"
 
 # Project templates directory
-log_verbose "Creating project templates directory..."
+log "Creating project templates directory..."
 TARGET_DIR="$TARGET_HOME/projects/claude-code-templates"
-log_verbose "Target: $TARGET_DIR"
+log "Target: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
-log_verbose "✓ Created: $TARGET_DIR"
+log "✓ Created: $TARGET_DIR"
 
 # User directory for VSCode settings
-log_verbose "Creating User directory for VSCode settings..."
+log "Creating User directory for VSCode settings..."
 TARGET_DIR="$TARGET_HOME/User"
-log_verbose "Target: $TARGET_DIR"
+log "Target: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
-log_verbose "✓ Created: $TARGET_DIR"
+log "✓ Created: $TARGET_DIR"
 
 log "✓ All directories created successfully"
 
@@ -128,86 +123,86 @@ if [ "$REPO_AVAILABLE" = true ]; then
 
     # Ensure target home directory exists
     if [ ! -d "$TARGET_HOME" ]; then
-        log_verbose "Creating target home directory: $TARGET_HOME"
+        log "Creating target home directory: $TARGET_HOME"
         mkdir -p "$TARGET_HOME"
     fi
 
     # Check if we can write to the target directory
     if [ ! -w "$TARGET_HOME" ]; then
-        log_verbose "Warning: Cannot write to $TARGET_HOME"
+        log "Warning: Cannot write to $TARGET_HOME"
         log "Error: No write access to $TARGET_HOME"
         exit 1
     fi
 
-    log_verbose "Starting file copy operations..."
-    log_verbose "Source base directory: $TEMP_DIR"
+    log "Starting file copy operations..."
+    log "Source base directory: $TEMP_DIR"
 
     # Copy Claude agents
-    log_verbose ""
-    log_verbose "Processing Claude agents..."
+    log ""
+    log "Processing Claude agents..."
     SOURCE_DIR="$TEMP_DIR/.claude/agents"
     TARGET_DIR="$TARGET_HOME/.claude/agents"
     if [ -d "$SOURCE_DIR" ]; then
-        log_verbose "Found agents directory at: $SOURCE_DIR"
-        log_verbose "Listing agent files to copy:"
+        log "Found agents directory at: $SOURCE_DIR"
+        log "Listing agent files to copy:"
         for file in "$SOURCE_DIR"/*; do
             if [ -f "$file" ]; then
                 filename=$(basename "$file")
-                log_verbose "  - $filename"
+                log "  - $filename"
                 log_file_op "COPY" "$file" "$TARGET_DIR/$filename"
-                cp "$file" "$TARGET_DIR/" 2>/dev/null || log_verbose "    Warning: Failed to copy $filename"
+                cp "$file" "$TARGET_DIR/" 2>/dev/null || log "    Warning: Failed to copy $filename"
             fi
         done
         log "✓ Copied Claude agents"
     else
-        log_verbose "No agents directory found at: $SOURCE_DIR"
+        log "No agents directory found at: $SOURCE_DIR"
     fi
 
     # Copy Claude commands
-    log_verbose ""
-    log_verbose "Processing Claude commands..."
+    log ""
+    log "Processing Claude commands..."
     SOURCE_DIR="$TEMP_DIR/.claude/commands"
     TARGET_DIR="$TARGET_HOME/.claude/commands"
     if [ -d "$SOURCE_DIR" ]; then
-        log_verbose "Found commands directory at: $SOURCE_DIR"
-        log_verbose "Listing command files to copy:"
+        log "Found commands directory at: $SOURCE_DIR"
+        log "Listing command files to copy:"
         for file in "$SOURCE_DIR"/*; do
             if [ -f "$file" ]; then
                 filename=$(basename "$file")
-                log_verbose "  - $filename"
+                log "  - $filename"
                 log_file_op "COPY" "$file" "$TARGET_DIR/$filename"
-                cp "$file" "$TARGET_DIR/" 2>/dev/null || log_verbose "    Warning: Failed to copy $filename"
+                cp "$file" "$TARGET_DIR/" 2>/dev/null || log "    Warning: Failed to copy $filename"
             fi
         done
         log "✓ Copied Claude commands"
     else
-        log_verbose "No commands directory found at: $SOURCE_DIR"
+        log "No commands directory found at: $SOURCE_DIR"
     fi
 
     # Copy output-styles
-    log_verbose ""
-    log_verbose "Processing output-styles..."
+    log ""
+    log "Processing output-styles..."
     SOURCE_DIR="$TEMP_DIR/.claude/output-styles"
     TARGET_DIR="$TARGET_HOME/.claude/output-styles"
     if [ -d "$SOURCE_DIR" ]; then
-        log_verbose "Found output-styles directory at: $SOURCE_DIR"
-        log_verbose "Listing style files to copy:"
+        log "Found output-styles directory at: $SOURCE_DIR"
+        log "Listing style files to copy:"
         for file in "$SOURCE_DIR"/*; do
             if [ -f "$file" ]; then
                 filename=$(basename "$file")
-                log_verbose "  - $filename"
+                log "  - $filename"
                 log_file_op "COPY" "$file" "$TARGET_DIR/$filename"
-                cp "$file" "$TARGET_DIR/" 2>/dev/null || log_verbose "    Warning: Failed to copy $filename"
+                cp "$file" "$TARGET_DIR/" 2>/dev/null || log "    Warning: Failed to copy $filename"
             fi
         done
         log "✓ Copied output-styles"
     else
-        log_verbose "No output-styles directory found at: $SOURCE_DIR"
+        log "No output-styles directory found at: $SOURCE_DIR"
     fi
 
     # Copy Claude config files
-    log_verbose ""
-    log_verbose "Processing Claude configuration files..."
+    log ""
+    log "Processing Claude configuration files..."
 
     # CLAUDE.md
     SOURCE_FILE="$TEMP_DIR/.claude/CLAUDE.md"
@@ -215,9 +210,9 @@ if [ "$REPO_AVAILABLE" = true ]; then
     if [ -f "$SOURCE_FILE" ]; then
         log_file_op "COPY" "$SOURCE_FILE" "$TARGET_FILE"
         cp "$SOURCE_FILE" "$TARGET_FILE"
-        log_verbose "✓ Copied CLAUDE.md"
+        log "✓ Copied CLAUDE.md"
     else
-        log_verbose "CLAUDE.md not found at: $SOURCE_FILE"
+        log "CLAUDE.md not found at: $SOURCE_FILE"
     fi
 
     # settings.json
@@ -226,14 +221,14 @@ if [ "$REPO_AVAILABLE" = true ]; then
     if [ -f "$SOURCE_FILE" ]; then
         log_file_op "COPY" "$SOURCE_FILE" "$TARGET_FILE"
         cp "$SOURCE_FILE" "$TARGET_FILE"
-        log_verbose "✓ Copied settings.json"
+        log "✓ Copied settings.json"
     else
-        log_verbose "settings.json not found at: $SOURCE_FILE"
+        log "settings.json not found at: $SOURCE_FILE"
     fi
 
     # Copy templates
-    log_verbose ""
-    log_verbose "Processing Claude code templates..."
+    log ""
+    log "Processing Claude code templates..."
     SOURCE_FILE="$TEMP_DIR/claude-code-templates/session-scratchpad-template.md"
     TARGET_FILE="$TARGET_HOME/projects/claude-code-templates/session-scratchpad-template.md"
     if [ -f "$SOURCE_FILE" ]; then
@@ -241,27 +236,27 @@ if [ "$REPO_AVAILABLE" = true ]; then
         cp "$SOURCE_FILE" "$TARGET_FILE"
         log "✓ Copied templates"
     else
-        log_verbose "Template not found at: $SOURCE_FILE"
+        log "Template not found at: $SOURCE_FILE"
     fi
 
     # Copy VSCode keybindings
-    log_verbose ""
-    log_verbose "Processing VSCode keybindings..."
+    log ""
+    log "Processing VSCode keybindings..."
     SOURCE_FILE="$TEMP_DIR/.vscode/keybindings.json"
     TARGET_FILE="$TARGET_HOME/User/keybindings.json"
     if [ -f "$SOURCE_FILE" ]; then
         log_file_op "COPY" "$SOURCE_FILE" "$TARGET_FILE"
         cp "$SOURCE_FILE" "$TARGET_FILE"
-        log_verbose "✓ Copied VSCode keybindings"
+        log "✓ Copied VSCode keybindings"
     else
-        log_verbose "VSCode keybindings not found at: $SOURCE_FILE"
+        log "VSCode keybindings not found at: $SOURCE_FILE"
     fi
 
     # Copy Gemini files
-    log_verbose ""
-    log_verbose "Processing Gemini configuration..."
+    log ""
+    log "Processing Gemini configuration..."
     if [ -d "$TEMP_DIR/.gemini" ]; then
-        log_verbose "Found Gemini directory"
+        log "Found Gemini directory"
 
         # GEMINI.md
         SOURCE_FILE="$TEMP_DIR/.gemini/GEMINI.md"
@@ -269,9 +264,9 @@ if [ "$REPO_AVAILABLE" = true ]; then
         if [ -f "$SOURCE_FILE" ]; then
             log_file_op "COPY" "$SOURCE_FILE" "$TARGET_FILE"
             cp "$SOURCE_FILE" "$TARGET_FILE"
-            log_verbose "✓ Copied GEMINI.md"
+            log "✓ Copied GEMINI.md"
         else
-            log_verbose "GEMINI.md not found at: $SOURCE_FILE"
+            log "GEMINI.md not found at: $SOURCE_FILE"
         fi
 
         # git-commit.toml
@@ -280,28 +275,28 @@ if [ "$REPO_AVAILABLE" = true ]; then
         if [ -f "$SOURCE_FILE" ]; then
             log_file_op "COPY" "$SOURCE_FILE" "$TARGET_FILE"
             cp "$SOURCE_FILE" "$TARGET_FILE"
-            log_verbose "✓ Copied git-commit.toml"
+            log "✓ Copied git-commit.toml"
         else
-            log_verbose "git-commit.toml not found at: $SOURCE_FILE"
+            log "git-commit.toml not found at: $SOURCE_FILE"
         fi
 
         log "✓ Copied Gemini config"
     else
-        log_verbose "No Gemini directory found at: $TEMP_DIR/.gemini"
+        log "No Gemini directory found at: $TEMP_DIR/.gemini"
     fi
 
-    log_verbose "File copy operations completed"
+    log "File copy operations completed"
 else
     log ""
     log "=== STEP 3: Skipping File Copy ==="
-    log_verbose "Repository not available, skipping all file copy operations"
-    log_verbose "Reason: Git clone failed or repository was not accessible"
+    log "Repository not available, skipping all file copy operations"
+    log "Reason: Git clone failed or repository was not accessible"
 fi
 
 # Install utility packages
 log ""
 log "=== STEP 4: Installing Utility Packages ==="
-log_verbose "Preparing package installation..."
+log "Preparing package installation..."
 
 # Essential packages only
 PACKAGES=(
@@ -309,7 +304,6 @@ PACKAGES=(
     "git"
     "curl"
     "wget"
-    "vim"
     "jq"
     "ripgrep"
     "fd-find"
@@ -345,75 +339,132 @@ PACKAGES=(
     "traceroute"
 )
 
-log_verbose "Total packages to check/install: ${#PACKAGES[@]}"
-log_verbose "Package list: ${PACKAGES[*]}"
+log "Total packages to check/install: ${#PACKAGES[@]}"
+log "Package list: ${PACKAGES[*]}"
 
 # Update package list
-log_verbose ""
-log_verbose "Updating APT package lists..."
-log_verbose "Command: sudo apt-get update -qq"
+log ""
+log "Updating APT package lists..."
+log "Command: sudo apt-get update -qq"
 sudo apt-get update -qq
-log_verbose "✓ Package lists updated"
+log "✓ Package lists updated"
 
 # Install packages
-log_verbose ""
-log_verbose "Starting package installation..."
+log ""
+log "Starting package installation..."
 INSTALLED_COUNT=0
 SKIPPED_COUNT=0
 FAILED_COUNT=0
 
 for package in "${PACKAGES[@]}"; do
-    log_verbose ""
-    log_verbose "Processing package: $package"
+    log ""
+    log "Processing package: $package"
 
     # Check if already installed
-    if dpkg -l | grep -q "^ii  $package "; then
-        log_verbose "  Package $package is already installed - skipping"
+    if dpkg -l 2>/dev/null | grep -q "^ii  $package " || dpkg -l 2>/dev/null | grep -q "^ii  ${package//-/} "; then
+        log "  Package $package is already installed - skipping"
         log "  ○ $package already installed"
-        ((SKIPPED_COUNT++))
+        SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
     else
-        log_verbose "  Package $package not found, attempting installation..."
-        log_verbose "  Command: sudo apt-get install -y -qq $package"
+        log "  Package $package not found, attempting installation..."
+        log "  Command: sudo apt-get install -y -qq $package"
 
-        # Try to install the package
-        if sudo apt-get install -y -qq "$package" >/dev/null 2>&1; then
+        # Try to install the package with timeout
+        if timeout 30 sudo apt-get install -y -qq "$package" 2>&1 | tail -n 5 >> "$LOG_FILE"; then
             log "  ✓ Successfully installed $package"
-            log_verbose "  Installation completed for $package"
-            ((INSTALLED_COUNT++))
+            log "  Installation completed for $package"
+            INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
         else
             log "  ✗ Failed to install $package"
-            log_verbose "  ERROR: Installation failed for $package"
-            ((FAILED_COUNT++))
+            log "  ERROR: Installation failed for $package"
+            FAILED_COUNT=$((FAILED_COUNT + 1))
         fi
     fi
 done
 
 # Package installation summary
-log_verbose ""
-log_verbose "Package installation summary:"
-log_verbose "  - New installations: $INSTALLED_COUNT"
-log_verbose "  - Already installed: $SKIPPED_COUNT"
-log_verbose "  - Failed installations: $FAILED_COUNT"
+log ""
+log "Package installation summary:"
+log "  - New installations: $INSTALLED_COUNT"
+log "  - Already installed: $SKIPPED_COUNT"
+log "  - Failed installations: $FAILED_COUNT"
 log "✓ Package installation phase completed"
+
+# Install Python uv
+log ""
+log "=== STEP 4.5: Installing Python uv ==="
+log "Installing Python's uv package manager..."
+
+# Install uv using pip
+log "Installing uv with pip..."
+log "Command: pip install uv"
+if pip install uv 2>&1 | while IFS= read -r line; do log "    UV: $line"; done; [ ${PIPESTATUS[0]} -eq 0 ]; then
+    log "  ✓ Successfully installed uv"
+
+    # Verify installation
+    if command -v uv &> /dev/null; then
+        UV_VERSION=$(uv --version 2>/dev/null | head -n1)
+        log "  ✓ uv is available: $UV_VERSION"
+    else
+        log "  ⚠ uv installed but not found in PATH"
+    fi
+else
+    log "  ✗ Failed to install uv"
+fi
+
+log "✓ Python uv installation phase completed"
+
+# Install MCP servers
+log ""
+log "=== STEP 4.6: Installing MCP Servers ==="
+log "Installing Claude MCP servers..."
+
+# Check if claude command exists
+if command -v claude &> /dev/null; then
+    log "Claude CLI found, proceeding with MCP server installation"
+
+    # Install context7 MCP server
+    log "Installing context7 MCP server..."
+    log "Command: claude mcp add context7 -s user -- npx -y @upstash/context7-mcp"
+    if claude mcp add context7 -s user -- npx -y @upstash/context7-mcp 2>&1 | while IFS= read -r line; do log "    MCP: $line"; done; [ ${PIPESTATUS[0]} -eq 0 ]; then
+        log "  ✓ Successfully installed context7 MCP server"
+    else
+        log "  ✗ Failed to install context7 MCP server"
+    fi
+
+    # Install fetch MCP server
+    log "Installing fetch MCP server..."
+    log "Command: claude mcp add fetch -s user -- uvx mcp-server-fetch"
+    if claude mcp add fetch -s user -- uvx mcp-server-fetch 2>&1 | while IFS= read -r line; do log "    MCP: $line"; done; [ ${PIPESTATUS[0]} -eq 0 ]; then
+        log "  ✓ Successfully installed fetch MCP server"
+    else
+        log "  ✗ Failed to install fetch MCP server"
+    fi
+
+    log "✓ MCP server installation phase completed"
+else
+    log "Claude CLI not found, skipping MCP server installation"
+    log "⚠ Claude CLI not available - MCP servers not installed"
+fi
 
 # Clean up
 log ""
 log "=== STEP 5: Cleanup ==="
-log_verbose "Starting cleanup operations..."
+log "Starting cleanup operations..."
 
 if [ -d "$TEMP_DIR" ]; then
-    log_verbose "Found temporary directory: $TEMP_DIR"
-    log_verbose "Calculating size before removal..."
+    log "Found temporary directory: $TEMP_DIR"
+    log "Calculating size before removal..."
     TEMP_SIZE=$(du -sh "$TEMP_DIR" 2>/dev/null | cut -f1)
-    log_verbose "Size of temporary directory: $TEMP_SIZE"
-    log_verbose "Removing temporary directory..."
+    log "Size of temporary directory: $TEMP_SIZE"
+    log "Removing temporary directory..."
     rm -rf "$TEMP_DIR"
-    log_verbose "✓ Temporary directory removed"
+    log "✓ Temporary directory removed"
 else
-    log_verbose "No temporary directory to clean up"
+    log "No temporary directory to clean up"
 fi
 
-log_verbose "Cleanup completed"
+log "Cleanup completed"
 
 # Final summary
 log ""
