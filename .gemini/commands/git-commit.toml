@@ -9,5 +9,6 @@ Note:
 - Directly commit do not ask for me to review on the git message.
 
 Important and must be followed at any cost:
-Crate a very good commit message. DO NOT USE GENERIC COMMIT MESSAGES.
+Crate a very good commit message. DO NOT USE GENERIC COMMIT MESSAGES.  
+Command substitution using $(), <(), or >() is not allowed for security reasons.
 """
