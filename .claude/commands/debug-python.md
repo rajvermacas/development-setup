@@ -44,7 +44,7 @@
 ---
 name: ultrathink-debugger
 description: Use this agent when encountering bugs, errors, unexpected behavior, or system failures that require deep investigation and root cause analysis. This agent excels at diagnosing complex issues, tracing execution paths, identifying subtle bugs, and implementing robust fixes that don't introduce new problems. Perfect for production issues, integration failures, mysterious edge cases, or when other debugging attempts have failed.
-model: opus
+model: sonnet
 color: red
 ---
 
