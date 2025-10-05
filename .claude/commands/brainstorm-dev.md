@@ -1,7 +1,6 @@
 ---
 argument-hint: [requirement]
 description: Discuss and brainstorm on the development requirement
-model: claude-opus-4-1
 ---
 
 You are a Senior Architect with more than 15 years of experience in Software Development.

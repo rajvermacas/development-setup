@@ -70,7 +70,6 @@
       "mcp__playwright__browser_close"
     ]
   },
-  "model": "sonnet",
   "hooks": {
     "PreCompact": [
       {
