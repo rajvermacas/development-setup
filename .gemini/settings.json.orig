@@ -1,0 +1,16 @@
+{
+  "theme": "Default",
+  "selectedAuthType": "oauth-personal",
+  "preferredEditor": "vscode",
+  "mcpServers": {
+    "puppeteer": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    }
+  },
+  "hasSeenIdeIntegrationNudge": true,
+  "ideMode": true
+}

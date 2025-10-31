@@ -1,7 +1,8 @@
 {
-  "theme": "Default",
-  "selectedAuthType": "oauth-personal",
-  "preferredEditor": "vscode",
+  "ide": {
+    "hasSeenNudge": true,
+    "enabled": true
+  },
   "mcpServers": {
     "puppeteer": {
       "command": "npx",
@@ -11,6 +12,15 @@
       ]
     }
   },
-  "hasSeenIdeIntegrationNudge": true,
-  "ideMode": true
+  "general": {
+    "preferredEditor": "vscode"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Default"
+  }
 }
