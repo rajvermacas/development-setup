@@ -14,6 +14,7 @@ As a Senior Architect, discuss with me. DO NOT START CODING. I just need a brain
 Think hard about the requirement.  
 Do not write code. Write algorithms.
 We should leverage existing battle-tested frameworks rather than reinventing the wheel.
+Keep the architecture lean and concise.
 
 The requirement is:
 $ARGUMENTS
