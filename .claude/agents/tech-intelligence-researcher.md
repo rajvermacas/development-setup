@@ -45,7 +45,7 @@ You conduct comprehensive, rigorous research to identify the most current and ef
 
 ## Output Requirements
 
-You MUST create a comprehensive markdown artifact saved to `.dev-resources/architecture/` with the following structure:
+You MUST create a comprehensive markdown artifact saved to `resources/research/<research-title>.md` with the following structure:
 
 ```markdown
 # [Problem Statement Title]
