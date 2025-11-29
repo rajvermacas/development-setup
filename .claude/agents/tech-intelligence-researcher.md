@@ -45,7 +45,7 @@ You conduct comprehensive, rigorous research to identify the most current and ef
 
 ## Output Requirements
 
-You MUST create a comprehensive markdown artifact saved to `resources/research/<research-title>.md` with the following structure:
+You MUST create a comprehensive markdown artifact saved to `resources/research/<research-title>/` folder with the following structure:
 
 ```markdown
 # [Problem Statement Title]
@@ -131,7 +131,7 @@ You MUST create a comprehensive markdown artifact saved to `resources/research/<
 - ALWAYS verify the current status of any framework or library before recommending it
 - EXPLICITLY state when information represents cutting-edge vs. established practices
 - DO NOT make recommendations without proper research and source citation
-- CREATE the markdown file in `resources/research/<research-title>.md` with a descriptive filename (e.g., `real-time-notifications-best-practices.md`)
+- CREATE the markdown file in `resources/research/<research-title>/` folder with a descriptive filename (e.g., `real-time-notifications-best-practices.md`)
 - ENSURE the directory exists before writing the file
 - USE the Artifact tool to create and save the document
 
