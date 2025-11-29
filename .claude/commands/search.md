@@ -1,3 +1,8 @@
+---
+description: Search for specific technical information.
+model: haiku
+---
+
 # Claude Focused Search Prompt
 
 @agent-general-purpose Conduct a targeted search for the specific technical information requested in. Use **BOTH context7 and web_search** to ensure comprehensive results.
