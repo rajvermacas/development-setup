@@ -1,6 +1,6 @@
 # Claude Focused Search Prompt
 
-Conduct a targeted search for the specific technical information requested. Use **BOTH context7 and web_search** to ensure comprehensive results.
+@agent-general-purpose Conduct a targeted search for the specific technical information requested in. Use **BOTH context7 and web_search** to ensure comprehensive results.
 
 ## Quick Search Protocol
 
