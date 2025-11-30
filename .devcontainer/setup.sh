@@ -292,7 +292,10 @@ if [ "$REPO_AVAILABLE" = true ]; then
     TARGET_DIR="$TARGET_HOME/.claude/skills"
     if [ -d "$SOURCE_DIR" ]; then
         log "Found skills directory at: $SOURCE_DIR"
-        cp -r "$SOURCE_DIR"/* "$TARGET_DIR/"
+        # Enable dotglob to include hidden files in glob expansion
+        shopt -s dotglob
+        cp -r "$SOURCE_DIR"/* "$TARGET_DIR/" 2>/dev/null || true
+        shopt -u dotglob
         # Make all Python scripts executable
         find "$TARGET_DIR" -name "*.py" -type f -exec chmod +x {} \;
         log "✓ Copied skills directory with $(find "$TARGET_DIR" -name "*.py" | wc -l) Python scripts"
