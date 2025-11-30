@@ -1,6 +1,7 @@
 ---
 description: Analyze a requirement file to extract tech stack, research with @tech-intelligence-researcher agent, and create a custom skill using /skill-creator
 argument-hint: [path-to-file]
+model: sonnet
 ---
 
 I need to analyze a technology stack and create a custom skill from research findings.
