@@ -153,9 +153,6 @@ Thumbs.db
 # Test data
 test_data/
 
-# Scripts folder (root level only - use /scripts/ to avoid matching nested directories)
-/scripts/
-
 # Reports
 resources/reports/
 .devcontainer/.devpod-internal
