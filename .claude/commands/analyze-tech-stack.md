@@ -26,11 +26,12 @@ Use the @tech-intelligence-researcher agent to comprehensively research each ext
 - Performance considerations and benchmarks
 - Community support and ecosystem health
 
-### Step 3: Create Reusable Skill
+### Step 3: Create Reusable Skill at project level
 Use the /skill-creator skill to create a high-quality skill that encapsulates all the research findings:
 - Skill name: Based on the primary tech stack identified
 - Description: Clear summary of what the skill provides
 - Content: Include best practices, integration guides, and patterns from the research
 - Usage: Document when and how to use the skill across projects
+- Remember to create the skill at project level
 
 Focus on creating a skill that is immediately useful and comprehensive for developers working with these technologies.
