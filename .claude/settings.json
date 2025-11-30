@@ -68,7 +68,8 @@
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_close",
       "Skill(skill-creator)",
-      "Skill(tech-research-skill-builder)"
+      "Skill(tech-research-skill-builder)",
+      "Skill(tech-research)"
     ]
   },
   "statusLine": {
