@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Read, WebFetch, Grep, Glob, LS, NotebookRead, TodoRead, WebSearch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__fetch__fetch, mcp__ide__getDiagnostics
+argument-hint: [search-query]
 description: Search for specific technical information.
 model: haiku
 ---
@@ -59,4 +61,4 @@ Based on initial results:
 - Performance considerations (if relevant)
 
 ## Search Query:
-[Your specific technical question here]
+$ARGUMENTS
