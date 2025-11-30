@@ -85,7 +85,7 @@ log "Main Claude directory: $TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 log "Created: $TARGET_DIR"
 
-for subdir in agents commands output-styles; do
+for subdir in agents commands output-styles skills; do
     FULL_PATH="$TARGET_DIR/$subdir"
     log "Creating subdirectory: $FULL_PATH"
     mkdir -p "$FULL_PATH"
@@ -285,12 +285,61 @@ if [ "$REPO_AVAILABLE" = true ]; then
         log "No Gemini directory found at: $TEMP_DIR/.gemini"
     fi
 
+    # Copy skills directory
+    log ""
+    log "Processing Claude skills..."
+    SOURCE_DIR="$TEMP_DIR/.claude/skills"
+    TARGET_DIR="$TARGET_HOME/.claude/skills"
+    if [ -d "$SOURCE_DIR" ]; then
+        log "Found skills directory at: $SOURCE_DIR"
+        cp -r "$SOURCE_DIR" "$TARGET_DIR"
+        # Make all Python scripts executable
+        find "$TARGET_DIR" -name "*.py" -type f -exec chmod +x {} \;
+        log "✓ Copied skills directory with $(find "$TARGET_DIR" -name "*.py" | wc -l) Python scripts"
+    else
+        log "⚠ No skills directory found at: $SOURCE_DIR"
+    fi
+
     log "File copy operations completed"
 else
     log ""
     log "=== STEP 3: Skipping File Copy ==="
     log "Repository not available, skipping all file copy operations"
     log "Reason: Git clone failed or repository was not accessible"
+fi
+
+# Add skill scripts to PATH
+if [ "$REPO_AVAILABLE" = true ]; then
+    log ""
+    log "=== STEP 3.5: Configuring Skill Utilities ==="
+    log "Configuring PATH for skill utilities..."
+    SKILL_SCRIPTS_DIR="$TARGET_HOME/.claude/skills/skill-creator/scripts"
+    if [ -d "$SKILL_SCRIPTS_DIR" ]; then
+        # Add to .bashrc
+        BASHRC="$TARGET_HOME/.bashrc"
+        if ! grep -q "claude/skills/skill-creator/scripts" "$BASHRC" 2>/dev/null; then
+            echo "" >> "$BASHRC"
+            echo "# Claude skill utilities" >> "$BASHRC"
+            echo "export PATH=\"\$PATH:$SKILL_SCRIPTS_DIR\"" >> "$BASHRC"
+            log "✓ Added skill scripts to PATH in .bashrc"
+        else
+            log "  PATH already configured in .bashrc"
+        fi
+
+        # Add to .profile for non-interactive shells
+        PROFILE="$TARGET_HOME/.profile"
+        if ! grep -q "claude/skills/skill-creator/scripts" "$PROFILE" 2>/dev/null; then
+            echo "" >> "$PROFILE"
+            echo "# Claude skill utilities" >> "$PROFILE"
+            echo "export PATH=\"\$PATH:$SKILL_SCRIPTS_DIR\"" >> "$PROFILE"
+            log "✓ Added skill scripts to PATH in .profile"
+        else
+            log "  PATH already configured in .profile"
+        fi
+    else
+        log "⚠ Skill scripts directory not found: $SKILL_SCRIPTS_DIR"
+    fi
+    log "✓ Skill utilities configuration completed"
 fi
 
 # Install utility packages
@@ -414,6 +463,21 @@ fi
 
 log "✓ Python uv installation phase completed"
 
+# Install PyYAML for skill utilities
+log ""
+log "Installing PyYAML for skill utilities..."
+if command -v pip3 >/dev/null 2>&1; then
+    pip3 install --quiet PyYAML
+    if python3 -c "import yaml" 2>/dev/null; then
+        YAML_VERSION=$(python3 -c "import yaml; print(yaml.__version__)" 2>/dev/null)
+        log "✓ PyYAML installed successfully (version: $YAML_VERSION)"
+    else
+        log "⚠ PyYAML installation may have failed"
+    fi
+else
+    log "⚠ pip3 not found, cannot install PyYAML"
+fi
+
 # Install MCP servers
 log ""
 log "=== STEP 4.6: Installing MCP Servers ==="
@@ -528,6 +592,7 @@ log "  • Claude configuration: ~/.claude/"
 log "    - Agents: ~/.claude/agents/"
 log "    - Commands: ~/.claude/commands/"
 log "    - Output styles: ~/.claude/output-styles/"
+log "    - Skills: ~/.claude/skills/"
 log "    - Settings: ~/.claude/settings.json"
 log "    - Configuration: ~/.claude/CLAUDE.md"
 log ""

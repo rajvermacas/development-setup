@@ -1,6 +1,7 @@
 ---
 name: feature-completion-reviewer
 description: Use this agent when you have completed implementing a feature and need a final review before shipping to production. This agent should be invoked after all exploration, planning, and code changes are complete but before the feature is marked as done. The agent will analyze git diffs to ensure no dummy implementations, TODOs, or incomplete code remains.
+tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__ide__getDiagnostics, mcp__ide__executeCode, mcp__fetch__fetch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, AskUserQuestion, Skill, SlashCommand
 model: sonnet
 ---
 
