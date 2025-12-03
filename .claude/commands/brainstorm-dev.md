@@ -9,6 +9,7 @@ As a Senior Architect, discuss with me. DO NOT START CODING. I just need a brain
 - You shoud ask me releveant pin pointed questions with default answer attached to it.
 - You should also give me some questions to consider in current requirements for improving the quality/experience
 - Remember to keep the architecture lean and concise
+- Create ascii diagram for visual representation of the execution flow
 
 **IMPORTANT AND MUST BE FOLLOWED AT ANY COST**  
 Think hard about the requirement.  
