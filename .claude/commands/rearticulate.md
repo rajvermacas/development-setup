@@ -1,3 +1,10 @@
+---
+allowed-tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__ide__getDiagnostics, mcp__ide__executeCode, mcp__fetch__fetch, Bash, AskUserQuestion, Skill, SlashCommand
+argument-hint: [requirement]
+description: Rearticulate the requirements in your own words.
+---
+
+
 # Explore existing codebase
 Use @agent-explore to explore the current state of the project and the existing codebase.
 

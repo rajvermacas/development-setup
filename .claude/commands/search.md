@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, WebFetch, Grep, Glob, LS, NotebookRead, TodoRead, WebSearch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__fetch__fetch, mcp__ide__getDiagnostics
+allowed-tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__ide__getDiagnostics, mcp__ide__executeCode, mcp__fetch__fetch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, AskUserQuestion, Skill, SlashCommand
 argument-hint: [search-query]
 description: Search for specific technical information.
 model: haiku
