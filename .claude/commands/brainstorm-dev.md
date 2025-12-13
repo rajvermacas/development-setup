@@ -14,7 +14,8 @@ As a Senior Architect, discuss with me. DO NOT START CODING. I just need a brain
 - Do not write code. Write algorithms.
 - We should leverage existing battle-tested frameworks rather than reinventing the wheel.
 - Keep the architecture lean and concise.
-- Create ascii diagram for visual representation of the execution flow
+- Create ascii diagram for visual representation of the execution flow.
+- Include clearly all the integration points with their corresponding API contracts.
 
 The requirement is:
 $ARGUMENTS
