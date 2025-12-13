@@ -49,6 +49,6 @@
         - versioning strategy
         - compatibility rules
 
-- The intent is to produce design-level documentation, not implementation. The markdown artifact should read like a thinking blueprint: how the system works, why decisions exist, and how pieces interact.
+- The intent is to produce design-level documentation. The markdown artifact should read like a thinking blueprint: how the system works, why decisions exist, and how pieces interact.
 
 - Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach. 
