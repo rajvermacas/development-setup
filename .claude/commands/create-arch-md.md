@@ -1,4 +1,4 @@
-- Draft the final architecture plan with all the technolgies involved. 
+- Draft the final architecture plan with all the technology stack involved. 
 - Remember to include all the discussed technologies involved, data flows, execution flows, sequence flow diagrams or any other discussed visual representations.
 - Refrain from writing actual code in the markdown artifact. Instead try to write the discussed:
     - algorithms
