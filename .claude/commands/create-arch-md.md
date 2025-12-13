@@ -1,4 +1,54 @@
-- Draft the final architecture plan. 
-- Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach. 
-- Remember to include all the discussed data flows, execution flows, sequence flow diagrams or any other discussed visual representations.
+- Draft the final architecture plan with all the technolgies involved. 
+- Remember to include all the discussed technologies involved, data flows, execution flows, sequence flow diagrams or any other discussed visual representations.
+- Refrain from writing actual code in the markdown artifact. Instead try to write the discussed:
+    - algorithms
+    - concepts
+    - technologies
+    - logical classes
+    - uml diagrams
+    - responsibilities
+    - dependencies
+    - api contracts
+    - integration points
+    - industry best practices
+    - designs
+    - flowcharts
+    - data flow
+    - execution flow
+    - sequence diagrams
+    - class diagrams
+    - and any other information or visual representations that signifies:
+        - Architecture & Structure
+        - system boundaries
+        - architectural layers
+        - components and sub-systems
+        - modules and domains
+        - bounded contexts
+        - responsibility segregation
+        - dependency direction
+        - coupling and cohesion
+        - extension points
+        - plug-in points
+        - state transition diagrams
+        - component interaction maps
+        - dependency graphs
+        - timing diagrams
+        - swimlane diagrams
+        - system context diagrams
+        - conceptual schemas
+        - interaction timelines
+        - Interaction & Integration
+        - communication patterns
+        - request–response semantics
+        - asynchronous flows
+        - event-driven interactions
+        - message contracts
+        - idempotency guarantees
+        - retry and timeout behavior
+        - backpressure strategy
+        - versioning strategy
+        - compatibility rules
 
+- The intent is to produce design-level documentation, not implementation. The markdown artifact should read like a thinking blueprint: how the system works, why decisions exist, and how pieces interact.
+
+- Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach. 
