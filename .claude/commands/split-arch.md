@@ -23,3 +23,4 @@ Then before writing to any document first show me its summary and wait for my ap
 - You must not introduce any new concepts or technologies which is not already mentioned in the original architecture plan.
 - Remember you are only grouping the features/responsibilities in their logical phases. You must not trim down the features/responsibilities itself to miss out the details.
 - You must ensure consistency between original architecture plan and newly discussed documents. So that we are sure we are not missing out or adding any feature or responsibility.
+- If there are no frontend elements included in the $ARGUMENTS document then just create 2 documents for backend.
