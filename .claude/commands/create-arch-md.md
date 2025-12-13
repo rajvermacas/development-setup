@@ -17,7 +17,7 @@
     - execution flow
     - sequence diagrams
     - class diagrams
-    - and any other information or visual representations that signifies:
+    - and any other discussed information or visual representations that signifies:
         - Architecture & Structure
         - system boundaries
         - architectural layers
