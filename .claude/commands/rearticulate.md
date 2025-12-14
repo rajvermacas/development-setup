@@ -9,7 +9,7 @@ description: Rearticulate the requirements in your own words.
 Use agent @agent-explore to explore the current state of the project and the existing codebase.
 
 # Research
-Use agent @agent-library-docs-researcher to research the libraries and frameworks that are going to be used in the project. 
+Use sub task to search for the library's latest documentation to have correct api contract understanding.  
 Always use already available sdks instead of implementing them from scratch on your own.
 
 # Re-articulate requirements in your own words
@@ -27,6 +27,3 @@ Clearly mention all the agents that are going to be used and what each agent is 
 Clearly mention all the files that are going to be created, modified or deleted.  
 Finally finish with a complete TODO list.  
 Wait for my confirmation on the plan.
-
-# Note:
-Make efficient use of Agents
