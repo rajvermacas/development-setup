@@ -22,8 +22,6 @@ Use agent @agent-plan to understand what actions you need to take, what exact st
 # Important steps to be followed in the exact order
 Re-organise the requirements into their logical & sequential order of implementation including any dependancies.  
 Create an execution flow of the requirement in ascii diagram.  
-Include how you will be able to effectively use Agents and what will be done in series and what can be done in parallel. 
-Clearly mention all the agents that are going to be used and what each agent is going to do.   
 Clearly mention all the files that are going to be created, modified or deleted.  
 Finally finish with a complete TODO list.  
 Wait for my confirmation on the plan.
