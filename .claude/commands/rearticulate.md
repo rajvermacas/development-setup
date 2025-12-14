@@ -9,7 +9,7 @@ description: Rearticulate the requirements in your own words.
 Use agent @agent-explore to explore the current state of the project and the existing codebase.
 
 # Research
-Use sub task with haiku to do quick and efficient pin pointed internet search for the library's latest documentation to have correct api contract understanding without wasting too much of tokens.
+Use sub task with haiku to do quick and efficient pin pointed internet search for the library's latest documentation to have correct api contract understanding required for our project feature implementation without wasting too much of tokens.
 Always use already available sdks instead of implementing them from scratch on your own.
 
 # Re-articulate requirements in your own words
