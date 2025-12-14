@@ -17,37 +17,7 @@
     - execution flow
     - sequence diagrams
     - class diagrams
-    - and any other discussed information or visual representations that signifies:
-        - Architecture & Structure
-        - system boundaries
-        - architectural layers
-        - components and sub-systems
-        - modules and domains
-        - bounded contexts
-        - responsibility segregation
-        - dependency direction
-        - coupling and cohesion
-        - extension points
-        - plug-in points
-        - state transition diagrams
-        - component interaction maps
-        - dependency graphs
-        - timing diagrams
-        - swimlane diagrams
-        - system context diagrams
-        - conceptual schemas
-        - interaction timelines
-        - Interaction & Integration
-        - communication patterns
-        - request–response semantics
-        - asynchronous flows
-        - event-driven interactions
-        - message contracts
-        - idempotency guarantees
-        - retry and timeout behavior
-        - backpressure strategy
-        - versioning strategy
-        - compatibility rules
+    - and any other discussed information or visual representations
 
 - The intent is to produce design-level documentation. The markdown artifact should read like a thinking blueprint: how the system works, why decisions exist, and how pieces interact.
 
