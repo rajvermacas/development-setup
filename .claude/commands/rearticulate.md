@@ -8,6 +8,9 @@ description: Rearticulate the requirements in your own words.
 # Explore existing codebase
 Use agent @agent-explore to explore the current state of the project and the existing codebase.
 
+# Research
+Use agent @agent-library-docs-researcher to research the libraries and frameworks that are going to be used in the project.
+
 # Re-articulate requirements in your own words
 Can you please think hard and re-articulate to me the concrete and specific requirements I have given to you using your own words so that I can evaluate that you have understood the requirements correctly.  
 Include what those specific requirements are and break down each requirement into small manageable tasks.
@@ -23,3 +26,6 @@ Clearly mention all the agents that are going to be used and what each agent is 
 Clearly mention all the files that are going to be created, modified or deleted.  
 Finally finish with a complete TODO list.  
 Wait for my confirmation on the plan.
+
+# Note:
+Make efficient use of Agents
