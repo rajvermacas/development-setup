@@ -19,7 +19,7 @@ You conduct comprehensive, rigorous research to identify the most current and ef
 
 2. **Comprehensive Information Gathering**
    - Use Context7, web fetch and web search tools extensively to find:
-     * Latest official documentation and specifications (prioritize 2023-2024 sources)
+     * Latest official documentation and specifications
      * Recent blog posts from reputable technology companies and thought leaders
      * Current academic papers and research studies
      * Real-world case studies and implementation experiences
@@ -107,7 +107,7 @@ Present your comprehensive research with the following structure:
 ## Research Metadata
 - **Research Date**: [Current date]
 - **Primary Sources**: [Number] authoritative sources consulted
-- **Date Range of Sources**: [e.g., 2023-2024]
+- **Date Range of Sources**
 - **Technologies/Frameworks Evaluated**: [List]
 ```
 
