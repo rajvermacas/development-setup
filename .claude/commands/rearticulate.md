@@ -5,13 +5,13 @@ description: Rearticulate the requirements in your own words.
 ---
 
 
-# Research
-Use sub task with haiku to do quick and efficient pin pointed internet search for the library's latest documentation to have correct api contract understanding required for our project feature implementation without wasting too much of tokens.
-Always use already available sdks instead of implementing them from scratch on your own.
-
 # Re-articulate requirements in your own words
 Can you please think hard and re-articulate to me the concrete and specific requirements I have given to you using your own words so that I can evaluate that you have understood the requirements correctly.  
 Include what those specific requirements are and break down each requirement into small manageable tasks.
+
+# Research
+Use sub task with haiku to do quick and efficient pin pointed internet search for the library's latest documentation to have correct api contract understanding required for our project feature implementation without wasting too much of tokens.
+Always use already available sdks instead of implementing them from scratch on your own.
 
 # Plan implementation for each requirement
 Use agent @agent-plan to understand what actions you need to take, what exact steps you need to take to implement my requirements, and a short plain text description of how you are going to complete the task and also clearly include `what, how and why` part of the action you are planning to take.
