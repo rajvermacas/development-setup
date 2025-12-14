@@ -9,7 +9,7 @@ description: Rearticulate the requirements in your own words.
 Use agent @agent-explore to explore the current state of the project and the existing codebase.
 
 # Research
-Use sub task to search for the library's latest documentation to have correct api contract understanding.  
+Use sub task to do internet search for the library's latest documentation to have correct api contract understanding.  
 Always use already available sdks instead of implementing them from scratch on your own.
 
 # Re-articulate requirements in your own words
