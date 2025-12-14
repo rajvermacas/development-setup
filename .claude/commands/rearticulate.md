@@ -9,7 +9,8 @@ description: Rearticulate the requirements in your own words.
 Use agent @agent-explore to explore the current state of the project and the existing codebase.
 
 # Research
-Use agent @agent-library-docs-researcher to research the libraries and frameworks that are going to be used in the project.
+Use agent @agent-library-docs-researcher to research the libraries and frameworks that are going to be used in the project. 
+Always use already available sdks instead of implementing them from scratch on your own.
 
 # Re-articulate requirements in your own words
 Can you please think hard and re-articulate to me the concrete and specific requirements I have given to you using your own words so that I can evaluate that you have understood the requirements correctly.  
