@@ -1,24 +1,4 @@
-- Draft the final architecture plan with all the technology stack involved. 
-- Remember to include all the discussed technologies involved, data flows, execution flows, sequence flow diagrams or any other discussed visual representations.
-- Refrain from writing actual code in the markdown artifact. Instead try to write the discussed:
-    - algorithms
-    - concepts
-    - technologies
-    - logical classes
-    - uml diagrams
-    - responsibilities
-    - dependencies
-    - api contracts
-    - integration points
-    - industry best practices
-    - designs
-    - flowcharts
-    - data flow
-    - execution flow
-    - sequence diagrams
-    - class diagrams
-    - and any other discussed information or visual representations
-
-- The intent is to produce design-level documentation. The markdown artifact should read like a thinking blueprint: how the system works, why decisions exist, and how pieces interact.
-
+- Draft the final architecture plan. 
 - Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach. 
+- Remember to include all the discussed execution flows, technology stack, frameworks, libraries, sdks.
+- Refrain from doing actual coding in the architecture document.
