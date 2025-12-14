@@ -16,6 +16,7 @@ As a Senior Architect, discuss with me. DO NOT START CODING. I just need a brain
 - Keep the architecture lean and concise.
 - Create ascii diagram for visual representation of the execution flow.
 - Include clearly all the integration points with their corresponding API contracts.
+- Include technology stack, frameworks and sdks in the architecture.
 
 The requirement is:
 $ARGUMENTS
