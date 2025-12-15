@@ -15,11 +15,6 @@
       "TodoRead",
       "TodoWrite",
       "WebSearch",
-      "mcp__firecrawl__firecrawl_search",
-      "mcp__firecrawl__firecrawl_scrape",
-      "mcp__context7__resolve-library-id",
-      "mcp__context7__get-library-docs",
-      "mcp__fetch__fetch",
       "mcp__puppeteer__puppeteer_screenshot",
       "mcp__puppeteer__puppeteer_fill",
       "mcp__puppeteer__puppeteer_evaluate",
@@ -68,7 +63,13 @@
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_close",
       "Skill(skill-creator)",
-      "Skill(tech-research-skill-builder)"
+      "Skill(tech-research-skill-builder)",
+      "BashOutput",
+      "KillShell",
+      "mcp__ide__executeCode",
+      "AskUserQuestion",
+      "Skill",
+      "SlashCommand"
     ]
   },
   "statusLine": {

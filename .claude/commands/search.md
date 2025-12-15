@@ -2,7 +2,7 @@
 allowed-tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__ide__getDiagnostics, mcp__ide__executeCode, mcp__fetch__fetch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, AskUserQuestion, Skill, SlashCommand
 argument-hint: [search-query]
 description: Search for specific technical information.
-model: sonnet
+model: haiku
 ---
 
 @agent-general-purpose Conduct a targeted search for the specific technical information requested in. Use **BOTH web fetch and web_search** to ensure comprehensive results.
