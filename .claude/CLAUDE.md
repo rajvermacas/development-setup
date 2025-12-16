@@ -17,6 +17,7 @@ Ask me questions if any feature/development requirement is unclear.
 - You must create any debug scripts, temporary scripts, test data generation scripts or any scripts of such sort in scripts folder. 
 - The root of the project directory should be kept clean as much as possible.
 - Any outputs or reports should be created in the resources/reports folder.
+- Add ascii diagram in your explanation for visual representation and better understanding.
 
 ## Python Project Rules
 - Create pyproject.toml if not already created.
@@ -56,7 +57,7 @@ Ask me questions if any feature/development requirement is unclear.
     Always write test cases for your new developed code. Use mock, patch etc and write test cases to have maximum coverage.
 
 10. **README.md**  
-    Make a habit to keep a check on the README.md. Whenever you write a feature or develop a piece of code remember to also update the README.md if applicable.
+    Make a habit to keep a check on the README.md. Whenever you write a feature or develop a piece of code remember to also update the README.md. Add ascii diagram in your explanation for visual representation.
 
 ---
 
@@ -64,15 +65,15 @@ Ask me questions if any feature/development requirement is unclear.
 
 1. **Meaningful Naming**  
    - Use descriptive names (`calculateInvoiceTotal()` vs. `calcInvTot()`).  
-   - Follow naming conventions: `camelCase` for variables/functions, `PascalCase` for classes.
+   - Follow naming conventions as per the programming language.
    - Create docstring for classes and functions.
 
 2. **Avoid Deep Nesting**  
    - Use early returns to reduce nested conditionals.  
    - Extract nested logic into helper functions.
 
-3. **Comment Sparingly**  
-   - Comment only where code isn’t self-explanatory.  
+3. **Comment**  
+   - Always Comment where code isn’t self-explanatory or difficult to understand or you think it is important to explain.  
    - Focus on the _why_ rather than the _what_.  
    - Use docstrings or structured comments for public APIs.
 
@@ -87,7 +88,7 @@ Ask me questions if any feature/development requirement is unclear.
 
 7. **Test Coverage**  
    - Write thorough unit and integration tests for all major functionality.  
-   - Mock data only in test code—never in development or production.
+   - Mock data only in test code - never in development or production.
 
 ---
 
