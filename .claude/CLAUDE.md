@@ -8,6 +8,7 @@ Ask me questions if any feature/development requirement is unclear.
 - Always (strictly, most importantly, highest priority, must be followed in any condition) keep a check on the number of lines in the file. If the file exceeds the limit of 800 lines, break it down into multiple files.
 - You must avoid any fallback or default values. If something is not provided, then you must raise an exception.
 - You must have a strict test driven development approach.
+- You must make use of agents effectively and efficiently.
 - You must implement robust, extensive logging and exception handling. Flood it with logs.
 - Do not be lazy. Implement full feature/requirement which was requested.
 - Be transparent about scope of your work and clearly and bluntly mention what are all the tasks you peformed and what tasks you missed and why you missed it.
@@ -19,10 +20,10 @@ Ask me questions if any feature/development requirement is unclear.
 
 ## Python Project Rules
 - Create pyproject.toml if not already created.
-- Use venv for dependency management.
 - Do not use black, flake8 or mypy or any other dedicated tool to check code formatting and linting.
 - If you are just starting with a new project, then always remember to create the src/<project_name> directory so that you can later deploy the application on PyPI without any challenges.
 - NEVER EVER CHANGE .env file
+- Always use uv for dependency management.
 
 ## 🚀 **Core Principles**
 
