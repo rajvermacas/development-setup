@@ -47,6 +47,11 @@ Your primary responsibility is to maintain CLAUDE.md and README.md files that se
 
 ## CLAUDE.md Structure Requirements
 
+CLAUDE.md should be a one stop solution to know about the different features, integration points, servers involved, directory structure indexing for better navigation in the project given an idea/requirement/bug/feature. 
+Do not keep any stale inforamtion. 
+Keep it useful, meaningful, efficient and effective. 
+Do not bloat it with redundant or duplicate information.
+
 CLAUDE.md must include these sections (adapt to project needs):
 
 ```markdown
@@ -80,6 +85,16 @@ Common mistakes and what not to do.
 
 ## Important Constraints
 Fail-fast behavior, error handling philosophy, data access patterns.
+
+## Integration Points
+All the different logical components that talks to each other with directory and files citation.
+
+## All the key features
+What are all the important features of the solution along with directory and files citation.
+
+## Servers
+All the servers involved in the solution along with which server talks to which other servers including their directory and files citation.
+
 ```
 
 ## README.md Structure Requirements

@@ -6,7 +6,7 @@ Ask me questions if any feature/development requirement is unclear.
 ---
 ## IMPORTANT AND MUST BE FOLLOWED
 - Always (strictly, most importantly, highest priority, must be followed in any condition) keep a check on the number of lines in the file. If the file exceeds the limit of 800 lines, break it down into multiple files.
-- You must avoid any fallback or default values. If something is not provided, then you must raise an exception.
+- You must avoid any fallback or default values. If something is not provided, then you must raise an exception. Fail fast is the philosophy to be followed.
 - You must have a strict test driven development approach.
 - You must make use of agents effectively and efficiently.
 - You must implement robust, extensive logging and exception handling. Flood it with logs.
