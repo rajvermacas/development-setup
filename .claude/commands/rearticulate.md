@@ -6,7 +6,7 @@ description: Rearticulate the requirements in your own words.
 
 
 # Re-articulate requirements in your own words
-Can you please think hard and re-articulate to me the concrete and specific requirements I have given to you using your own words so that I can evaluate that you have understood the requirements correctly.  
+Can you please ultrathink and re-articulate to me the concrete and specific requirements I have given to you using your own words so that I can evaluate that you have understood the requirements correctly.  
 Include what those specific requirements are and break down each requirement into small manageable tasks.
 
 # Plan implementation for each requirement
