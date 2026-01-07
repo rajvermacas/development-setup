@@ -18,7 +18,6 @@
       "mcp__ide__getDiagnostics",
       "mcp__ide__executeCode",
       "Skill(skill-creator)",
-      "Skill(tech-research-skill-builder)",
       "BashOutput",
       "KillShell",
       "AskUserQuestion",
