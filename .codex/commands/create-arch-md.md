@@ -1,0 +1,4 @@
+- Draft the final architecture plan. 
+- Create a markdown artifact in .dev-resources/architecture/ directory and cover all the details which we discussed about the finalised approach. 
+- Remember to include all the discussed execution flows, technology stack, frameworks, libraries, sdks.
+- Refrain from doing actual coding in the architecture document.
