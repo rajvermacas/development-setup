@@ -3,3 +3,4 @@
 - Keep functions within 80 lines of code with single responsibility. If a function exceeds 80 lines, then break it down into multiple functions.
 - You must avoid any fallback or default values. If something is not provided, then you must raise an exception. Fail fast is the philosophy to be followed.
 - Create .gitignore if not already created.
+- Use logger for logging. Keep the logs detailed.
