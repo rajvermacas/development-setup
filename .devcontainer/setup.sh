@@ -355,21 +355,14 @@ if [ "$REPO_AVAILABLE" = true ]; then
             log "No Codex commands directory found at: $SOURCE_DIR"
         fi
 
-        # Codex skills
+        # Codex superpower skill
         log ""
-        log "Processing Codex skills..."
-        SOURCE_DIR="$TEMP_DIR/.codex/skills"
-        TARGET_DIR="$TARGET_HOME/.codex/skills"
-        if [ -d "$SOURCE_DIR" ]; then
-            log "Found Codex skills directory at: $SOURCE_DIR"
-            # Enable dotglob to include hidden files in glob expansion
-            shopt -s dotglob
-            cp -r "$SOURCE_DIR"/* "$TARGET_DIR/" 2>/dev/null || true
-            shopt -u dotglob
-            log "✓ Copied Codex skills directory"
-        else
-            log "No Codex skills directory found at: $SOURCE_DIR"
-        fi
+        log "Processing Codex superpower skill..."
+        git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+
+        mkdir -p ~/.agents/skills
+        ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+        log "✓ Configured Codex superpower skill"
 
         log "✓ Copied Codex config"
     else
