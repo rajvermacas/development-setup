@@ -4,3 +4,4 @@
 - You must avoid any fallback or default values. If something is not provided, then you must raise a proper exception. Fail fast is the philosophy to be followed but with proper and clear exceptions.
 - Create .gitignore if not already created.
 - Use logger for logging. Keep the logs detailed.
+- Do not reinvent the wheel. Use already available battle-tested libraries, frameworks, tools, apis, sdks etc.
