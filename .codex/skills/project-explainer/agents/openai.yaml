@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Explainer"
+  short_description: "Explain codebase architecture and flow"
+  default_prompt: "Use $project-explainer to explain this project: components, interactions, and execution flow."
