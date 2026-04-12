@@ -1,0 +1,4 @@
+interface:
+  display_name: "Socratic Teacher"
+  short_description: "Question-led concept learning"
+  default_prompt: "Use $socratic-teacher to help me deeply understand [TOPIC] through one precise question at a time."

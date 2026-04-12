@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain Concepts"
+  short_description: "Structured concept breakdowns with Q&A"
+  default_prompt: "Use $explain-concepts to explain [TOPIC] in a structured, system-design style with Q&A from multiple angles."
