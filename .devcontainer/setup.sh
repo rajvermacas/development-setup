@@ -355,13 +355,48 @@ if [ "$REPO_AVAILABLE" = true ]; then
             log "No Codex commands directory found at: $SOURCE_DIR"
         fi
 
+        # Codex skills
+        log ""
+        log "Processing Codex skills..."
+        SOURCE_DIR="$TEMP_DIR/.codex/skills"
+        TARGET_DIR="$TARGET_HOME/.codex/skills"
+        if [ -d "$SOURCE_DIR" ]; then
+            log "Found Codex skills directory at: $SOURCE_DIR"
+            shopt -s dotglob
+            cp -r "$SOURCE_DIR"/* "$TARGET_DIR/" 2>/dev/null || true
+            shopt -u dotglob
+            # Make all shell scripts executable
+            find "$TARGET_DIR" -name "*.sh" -type f -exec chmod +x {} \;
+            log "✓ Copied Codex skills directory with $(find "$TARGET_DIR" -type f | wc -l) files"
+        else
+            log "⚠ No Codex skills directory found at: $SOURCE_DIR"
+        fi
+
         # Codex superpower skill
         log ""
         log "Processing Codex superpower skill..."
-        git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+        if [ -d "$TARGET_HOME/.codex/superpowers" ]; then
+            log "Superpowers directory already exists, pulling latest..."
+            if git -C "$TARGET_HOME/.codex/superpowers" pull 2>/dev/null; then
+                log "✓ Updated superpowers repository"
+            else
+                log "⚠ Failed to update superpowers repository"
+            fi
+        else
+            if git clone https://github.com/obra/superpowers.git "$TARGET_HOME/.codex/superpowers" 2>/dev/null; then
+                log "✓ Cloned superpowers repository"
+            else
+                log "⚠ Failed to clone superpowers repository"
+            fi
+        fi
 
-        mkdir -p ~/.agents/skills
-        ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+        mkdir -p "$TARGET_HOME/.agents/skills"
+        if [ ! -L "$TARGET_HOME/.agents/skills/superpowers" ]; then
+            ln -s "$TARGET_HOME/.codex/superpowers/skills" "$TARGET_HOME/.agents/skills/superpowers"
+            log "✓ Created superpowers symlink"
+        else
+            log "  Superpowers symlink already exists"
+        fi
         log "✓ Configured Codex superpower skill"
 
         log "✓ Copied Codex config"

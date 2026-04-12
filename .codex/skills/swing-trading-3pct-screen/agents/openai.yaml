@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swing Trading 3% Screen"
+  short_description: "Analyze Screener stocks for 3% swing setups"
+  default_prompt: "Use $swing-trading-3pct-screen to analyze a Screener.in stock screen for swing trades with a hard 3% stop rule."
