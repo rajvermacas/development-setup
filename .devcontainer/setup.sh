@@ -497,6 +497,8 @@ PACKAGES=(
     "nmap"
     "ping"
     "traceroute"
+    "socat",
+    "bubblewrap"
 )
 
 log "Total packages to check/install: ${#PACKAGES[@]}"
