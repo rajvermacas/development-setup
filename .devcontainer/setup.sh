@@ -576,6 +576,55 @@ fi
 
 log "✓ Python uv installation phase completed"
 
+# Install Bun
+log ""
+log "=== STEP 4.6: Installing Bun ==="
+log "Installing Bun JavaScript runtime..."
+
+BUN_INSTALL_DIR="$TARGET_HOME/.bun"
+log "Bun install directory: $BUN_INSTALL_DIR"
+log "Command: curl -fsSL https://bun.sh/install | bash"
+
+if curl -fsSL https://bun.sh/install | BUN_INSTALL="$BUN_INSTALL_DIR" bash 2>&1 | while IFS= read -r line; do log "    BUN: $line"; done; [ ${PIPESTATUS[0]} -eq 0 ]; then
+    log "  ✓ Successfully installed Bun"
+
+    # Add bun to PATH in .bashrc
+    BASHRC="$TARGET_HOME/.bashrc"
+    if ! grep -q "BUN_INSTALL" "$BASHRC" 2>/dev/null; then
+        echo "" >> "$BASHRC"
+        echo "# Bun" >> "$BASHRC"
+        echo "export BUN_INSTALL=\"$BUN_INSTALL_DIR\"" >> "$BASHRC"
+        echo "export PATH=\"\$BUN_INSTALL/bin:\$PATH\"" >> "$BASHRC"
+        log "  ✓ Added Bun to PATH in .bashrc"
+    else
+        log "  Bun PATH already configured in .bashrc"
+    fi
+
+    # Add bun to PATH in .profile
+    PROFILE="$TARGET_HOME/.profile"
+    if ! grep -q "BUN_INSTALL" "$PROFILE" 2>/dev/null; then
+        echo "" >> "$PROFILE"
+        echo "# Bun" >> "$PROFILE"
+        echo "export BUN_INSTALL=\"$BUN_INSTALL_DIR\"" >> "$PROFILE"
+        echo "export PATH=\"\$BUN_INSTALL/bin:\$PATH\"" >> "$PROFILE"
+        log "  ✓ Added Bun to PATH in .profile"
+    else
+        log "  Bun PATH already configured in .profile"
+    fi
+
+    # Verify installation
+    if [ -x "$BUN_INSTALL_DIR/bin/bun" ]; then
+        BUN_VERSION=$("$BUN_INSTALL_DIR/bin/bun" --version 2>/dev/null)
+        log "  ✓ Bun is available: v$BUN_VERSION"
+    else
+        log "  ⚠ Bun installed but binary not found at $BUN_INSTALL_DIR/bin/bun"
+    fi
+else
+    log "  ✗ Failed to install Bun"
+fi
+
+log "✓ Bun installation phase completed"
+
 # Install PyYAML for skill utilities
 log ""
 log "Installing PyYAML for skill utilities..."
