@@ -5,6 +5,7 @@
 - Create .gitignore if not already created.
 - Use logger for logging. Keep the logs detailed.
 - Do not reinvent the wheel. Use already available battle-tested libraries, frameworks, tools, apis, sdks etc.
+- Follow YAGNI, DRY, KISS software engineering principles.
 
 # GUIDELINES
 
