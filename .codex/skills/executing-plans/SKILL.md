@@ -1,6 +1,6 @@
 ---
 name: executing-plans
-description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
+description: Use when you have a written plan to execute in a separate session with review checkpoints
 ---
 
 # Executing Plans
@@ -9,7 +9,7 @@ description: Use when you have a written implementation plan to execute in a sep
 
 Load plan, review critically, execute all tasks, report when complete.
 
-**Announce at start:** "I'm using the executing-plans skill to implement this plan."
+**Announce at start:** "I'm using the executing-plans skill to execute this plan."
 
 ## The Process
 
@@ -24,13 +24,13 @@ Load plan, review critically, execute all tasks, report when complete.
 For each task:
 1. Mark as in_progress
 2. Follow each step exactly (plan has bite-sized steps)
-3. Run verifications as specified
+3. Run the done-checks / verifications as specified
 4. Mark as completed
 
 ## When to Stop and Ask for Help
 
 **STOP executing immediately when:**
-- Hit a blocker (missing dependency, test fails, instruction unclear)
+- Hit a blocker (missing dependency or input, a verification fails, instruction unclear)
 - Plan has critical gaps preventing starting
 - You don't understand an instruction
 - Verification fails repeatedly
@@ -48,7 +48,7 @@ For each task:
 ## Remember
 - Review plan critically first
 - Follow plan steps exactly
-- Don't skip verifications
+- Don't skip done-checks / verifications
 - Reference skills when plan says to
 - Stop when blocked, don't guess
-- Never start implementation on main/master branch without explicit user consent
+- For software work: never start implementation on main/master branch without explicit user consent
