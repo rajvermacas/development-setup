@@ -30,24 +30,7 @@
     "command": "/workspaces/stock-database/.claude/status-command.sh"
   },
   "alwaysThinkingEnabled": true,
-  "extraKnownMarketplaces": {
-    "thedotmack": {
-      "source": {
-        "source": "github",
-        "repo": "thedotmack/claude-mem"
-      }
-    },
-    "last30days-skill": {
-      "source": {
-        "source": "github",
-        "repo": "mvanhorn/last30days-skill"
-      }
-    }
-  },
   "enabledPlugins": {
-    "pyright-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "claude-mem@thedotmack": true,
-    "last30days@last30days-skill": true
+    "pyright-lsp@claude-plugins-official": true
   }
 }
