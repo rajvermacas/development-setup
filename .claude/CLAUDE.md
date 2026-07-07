@@ -7,6 +7,8 @@
 - Do not reinvent the wheel. Use already available battle-tested libraries, frameworks, tools, apis, sdks etc.
 - Follow YAGNI, DRY, KISS software engineering principles.
 - You must not do guesswork. Facts should be checked and verified before confirmation.
+- When I correct you or you catch yourself making a mistake, before continuing, add the lesson as a one-line rule under #LESSONS in project's CLAUDE.md so it never happens again.
+
 
 # GUIDELINES
 
