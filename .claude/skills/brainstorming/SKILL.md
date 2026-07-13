@@ -26,10 +26,13 @@ You MUST create a task for each of these items and complete them in order:
 3. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
 4. **Propose 2-3 approaches** — with trade-offs and your recommendation
 5. **Present design** — in sections scaled to their complexity, get user approval after each section
-6. **Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` and commit
-7. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope (see below)
-8. **User reviews written spec** — ask user to review the spec file before proceeding
-9. **Transition to implementation** — invoke writing-plans skill to create implementation/execution plan
+6. **Ask whether to document** — once the design is approved, ask the user whether they want the spec/plan written to files. This one answer decides the rest of the flow (see "After the Design").
+7. **If the user wants documentation** — complete 7a–7d in order:
+   - **7a. Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` and commit
+   - **7b. Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope (see below)
+   - **7c. User reviews written spec** — ask user to review the spec file before proceeding
+   - **7d. Invoke writing-plans** — hand off to the writing-plans skill to produce the implementation/execution plan
+8. **If the user declines documentation** — do NOT write the spec or plan to any file; start implementation directly on the approved design
 
 ## The Process
 
@@ -73,6 +76,14 @@ You MUST create a task for each of these items and complete them in order:
 
 ## After the Design
 
+Once the user has approved the design (checklist step 5), ask whether they want it documented before anything else happens:
+
+> "Design approved. Do you want me to write the spec (and then an implementation/execution plan) to files first, or should I skip the documents and start implementing directly?"
+
+Honor their choice — do not default to either path. The answer selects exactly one of the two branches below.
+
+### Branch A — User wants the spec/plan written
+
 **Documentation:**
 
 - Write the validated design (spec) to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`
@@ -97,10 +108,15 @@ After the spec review loop passes, ask the user to review the written spec befor
 
 Wait for the user's response. If they request changes, make them and re-run the spec review loop. Only proceed once the user approves.
 
-**Implementation:**
+**Plan:**
 
-- Invoke the writing-plans skill to create a detailed implementation/execution plan
-- Do NOT invoke any other skill. writing-plans is the next step.
+- After the user approves the written spec, invoke the writing-plans skill to produce the implementation/execution plan.
+- Do NOT invoke any other skill.
+
+### Branch B — User wants to skip the spec/plan
+
+- Do NOT write the spec or plan to any file, and do NOT invoke the writing-plans skill.
+- Start implementation/execution directly on the approved design.
 
 ## Key Principles
 
