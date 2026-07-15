@@ -159,11 +159,13 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 ## Execution Handoff
 
-After saving the plan, offer the execution choice based on work type:
+After saving the plan, present both execution choices and the new-session prompt immediately. Do not wait for the user to choose the new-session option before showing the prompt:
 
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. This plan is the source of truth for the next step.**
+> "Plan complete and saved to `docs/superpowers/plans/<filename>.md`. This plan is the source of truth for the next step. Would you like to continue with implementation/execution in this session, or execute the plan in a new session?"
 
-- **Feature/software:** hand off to implementation via executing-plans.
-- **General workflow:** hand off to executing-plans to carry out the steps.
+- **Same session:** If the user chooses this option, invoke executing-plans in the current session.
+- **New session:** If the user chooses this option, the user creates a new session and pastes the following prompt there. The agent must not create or switch sessions. Substitute the actual saved plan path for `<filename>` before showing it:
 
-**Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints.**
+```text
+Use the executing-plans skill to execute the plan at `docs/superpowers/plans/<filename>.md`.
+```
