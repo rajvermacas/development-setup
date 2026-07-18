@@ -1,13 +1,12 @@
 # IMPORTANT AND MUST BE FOLLOWED
-- Always (strictly, most importantly, highest priority, must be followed in any condition) keep a check on the number of lines in the file. If the file exceeds the limit of 800 lines, break it down into multiple files.
+- Keep a check on the number of lines in the file. If the file exceeds the limit of 800 lines, break it down into multiple files.
 - Keep functions within 80 lines of code with single responsibility. If a function exceeds 80 lines, then break it down into multiple functions.
 - You must avoid any fallback or default values. If something is not provided, then you must raise a proper exception. Fail fast is the philosophy to be followed but with proper and clear exceptions.
 - Create .gitignore if not already created.
-- Use logger for logging. Keep the logs detailed.
+- Use logger for logging. Keep the logs detailed. Logs should be added for both happy and unhappy or corner scenarios.
 - Do not reinvent the wheel. Use already available battle-tested libraries, frameworks, tools, apis, sdks etc.
 - Follow YAGNI, DRY, KISS software engineering principles.
 - You must not do guesswork. Facts should be checked and verified before confirmation.
-- When I correct you or you catch yourself making a mistake, before continuing, add the lesson as a one-line rule under #LESSONS in project's CLAUDE.md so it never happens again.
 
 
 # GUIDELINES
