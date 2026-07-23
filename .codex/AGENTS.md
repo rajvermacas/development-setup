@@ -5,8 +5,9 @@
 - Create .gitignore if not already created.
 - Use logger for logging. Keep the logs detailed. Logs should be added for both happy and unhappy or corner scenarios.
 - Do not reinvent the wheel. Use already available battle-tested libraries, frameworks, tools, apis, sdks etc.
-- Follow YAGNI, DRY, KISS software engineering principles.
+- Follow YAGNI (You Aren't Gonna Need It), DRY (Don't repeat yourself), KISS (Keep it stupidly simple) software engineering principles.
 - You must not do guesswork. Facts should be checked and verified before confirmation.
+- Keep designs simple. DO NOT OVER ENGINEER. DO NOT OVER COMPLICATE.
 
 
 # GUIDELINES
