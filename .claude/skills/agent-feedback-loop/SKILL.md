@@ -1,7 +1,6 @@
 ---
 name: agent-feedback-loop
-description: >-
-  Understand a user requirement, restate it in precise operational terms, and
+description: Understand a user requirement, restate it in precise operational terms, and
   create or run a use-case-agnostic feedback loop that repeatedly acts,
   observes evidence, diagnoses deviations, applies the smallest correction,
   and verifies success. Use when the user asks Codex to design, monitor, test,
